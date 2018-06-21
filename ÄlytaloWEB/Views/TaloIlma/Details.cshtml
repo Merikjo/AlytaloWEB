@@ -1,0 +1,106 @@
+﻿@model ÄlytaloWEB.ViewModels.IlmaViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TaloIlma</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Huone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Huone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IlmaTilaOff)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IlmaTilaOff)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ilma1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ilma1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ilma2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ilma2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ilma3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ilma3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ilma4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ilma4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IlmaOn1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IlmaOn1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IlmaOn2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IlmaOn2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IlmaOn3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IlmaOn3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IlmaOn4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IlmaOn4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IlmaOff)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IlmaOff)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Ilma_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,90 @@
+﻿@model IEnumerable<ÄlytaloWEB.ViewModels.LampoViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<link href="~/Content/Site.css" rel="stylesheet" />
+
+
+<div class="w3-container">
+    <div class="background">
+        <div class="jumbotron">
+
+            <h2>Huoneiden lämpötilojen säätö</h2>
+
+            <p>
+                @Html.ActionLink("Create New", "Create")
+            </p>
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Huone)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.HuoneNykyLampo)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.HuoneTavoiteLampo)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.LampoKirjattu)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.LampoOn)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.LampoOff)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Huone)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.HuoneNykyLampo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.HuoneTavoiteLampo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LampoKirjattu)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LampoOn)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LampoOff)
+                        </td>
+                        <td>
+                            @Html.ActionLink("ON", "LampoON", new { id = item.Huone_ID }) |
+                            @Html.ActionLink("OFF", "LampoOFF", new { id = item.Huone_ID }) |
+                            @Html.ActionLink("Edit", "Edit", new { id = item.Huone_ID }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.Huone_ID }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.Huone_ID })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/jquery-2.2.4.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/modernizr")
+
+@section Scripts {
+
+    @Scripts.Render("~/bundles/jqueryval")
+
+}

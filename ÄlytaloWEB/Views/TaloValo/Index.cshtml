@@ -1,0 +1,131 @@
+﻿@model IEnumerable<ÄlytaloWEB.ViewModels.LightsViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<link href="~/Content/Site.css" rel="stylesheet" />
+
+
+<div class="w3-container">
+    <div class="background">
+        <div class="jumbotron">
+
+            <h2>Talon valot</h2>
+
+            <p>
+                @Html.ActionLink("Create New Light", "Create")
+
+            </p>
+            <table class="table table-hover table-striped">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Huone)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ValaisinType)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Lamppu_ID)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ValoTilaOff)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Valo33)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Valo66)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Valo100)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ValoOn33)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ValoOn66)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ValoOn100)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ValoOff)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <img id="myImage" src="~/Images/LightPicture1.png" style="width:20px">
+                            @Html.DisplayFor(modelItem => item.Huone)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ValaisinType)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Lamppu_ID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ValoTilaOff)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Valo33)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Valo66)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Valo100)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ValoOn33)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ValoOn66)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ValoOn100)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ValoOff)
+                        </td>
+                        <td>
+                            <button onclick="document.getElementById('myImage').src='Images/LightPicture1.png'+"@Html.DisplayFor(modelItem => item.Valo_ID)>ON</button>
+                            <button onclick="document.getElementById('myImage').src='Images/LightPicture2.jpg'+"@Html.DisplayFor(modelItem => item.Valo_ID)>OFF</button>
+                            @Html.ActionLink("Off", "LightsOff", new { id = item.Valo_ID }) |
+                            @Html.ActionLink("33", "Light33", new { id = item.Valo_ID }) |
+                            @Html.ActionLink("66", "Light66", new { id = item.Valo_ID }) |
+                            @Html.ActionLink("100", "Light100", new { id = item.Valo_ID }) |
+                            @Html.ActionLink("Edit", "Edit", new { id = item.Valo_ID }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.Valo_ID }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.Valo_ID })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+
+        </div>
+    </div>
+</div>
+
+<button onclick="document.getElementById('myImage').src='Images/LightPicture1.png'">ON</button>
+<button onclick="document.getElementById('myImage').src='Images/LightPicture2.jpg'">OFF</button>
+
+
+<script src="~/Scripts/jquery-2.2.4.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/modernizr")
+
+@section Scripts {
+
+    @Scripts.Render("~/bundles/jqueryval")
+
+}

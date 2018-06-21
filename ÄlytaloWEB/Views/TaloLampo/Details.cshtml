@@ -1,0 +1,64 @@
+﻿@model ÄlytaloWEB.ViewModels.LampoViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TaloLampo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Huone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Huone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HuoneTavoiteLampo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HuoneTavoiteLampo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HuoneNykyLampo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HuoneNykyLampo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LampoKirjattu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LampoKirjattu)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LampoOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LampoOn)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LampoOff)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LampoOff)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Huone_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

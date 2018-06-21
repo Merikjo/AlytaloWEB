@@ -1,0 +1,110 @@
+﻿@model IEnumerable<ÄlytaloWEB.ViewModels.IlmaViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<link href="~/Content/Site.css" rel="stylesheet" />
+
+
+<!--BACKGROUND-->
+<div class="w3-container">
+    <div class="background">
+        <div class="jumbotron">
+            <h2>Ilmastoinnin ohjaus</h2>
+
+            <p>
+                @Html.ActionLink("Create New", "Create")
+            </p>
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Huone)
+                    </th>             
+                    <th>
+                        @Html.DisplayNameFor(model => model.Ilma1)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Ilma2)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Ilma3)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Ilma4)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.IlmaTilaOff)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.IlmaOn1)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.IlmaOn2)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.IlmaOn3)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.IlmaOn4)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.IlmaOff)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Huone)
+                        </td>        
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Ilma1)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Ilma2)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Ilma3)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Ilma4)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IlmaTilaOff)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IlmaOn1)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IlmaOn2)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IlmaOn3)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IlmaOn4)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IlmaOff)
+                        </td>
+                        <td>
+                            @Html.ActionLink("1", "IlmaOn1", new { id = item.Ilma_ID }) |
+                            @Html.ActionLink("2", "IlmaOn2", new { id = item.Ilma_ID }) |
+                            @Html.ActionLink("3", "IlmaOn3", new { id = item.Ilma_ID }) |
+                            @Html.ActionLink("4", "IlmaOn4", new { id = item.Ilma_ID }) |
+                            @Html.ActionLink("OFF", "IlmaOff", new { id = item.Ilma_ID }) |
+                            @Html.ActionLink("Edit", "Edit", new { id = item.Ilma_ID }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.Ilma_ID }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.Ilma_ID })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+</div>

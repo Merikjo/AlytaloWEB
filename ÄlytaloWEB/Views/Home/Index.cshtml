@@ -1,0 +1,390 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+
+
+    @*Ohjeita: https://modernizr.com/docs*@
+    <script>
+        $(function () {
+            alert("Sivun alustus.")
+            if (Modernizr.canvas) {
+                alert("Selain tukee canvastoimintoja");
+            }
+            else {
+                alert("Selain ei tue Canvas-toimintoja.")
+            }
+        });
+
+        $(function () {
+            alert("Sivun alustus.")
+            if (Modernizr.geolocation) {
+                alert("Selain tukee canvastoimintoja");
+            }
+            else {
+                alert("Selain ei tue Canvas-toimintoja.")
+            }
+        });
+    </script>
+
+    <script>
+        var myCenter = new google.maps.LatLng(60.457990699999996, 26.253110099999997);
+
+        function initialize() {
+            var mapProp = {
+                center: myCenter,
+                zoom: 15,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+
+            var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+
+            var marker = new google.maps.Marker({
+                position: myCenter,
+            });
+
+            marker.setMap(map);
+        }
+
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+
+    <script>
+            var dt = '@ViewBag.EndDate';
+            var dateAr = dt.split('-');
+            var newDate = dateAr[1] + '/' + dateAr[0] + '/' + dateAr[2];
+
+            var end = new Date(dateAr[1] + '/' + dateAr[0] + '/' + dateAr[2]);
+
+            var _second = 1000;
+            var _minute = _second * 60;
+            var _hour = _minute * 60;
+            var _day = _hour * 24;
+            var timer;
+
+            function showRemaining()
+            {
+            var now = new Date();
+            var distance = end - now;
+            if (distance & lt; 0) {
+            clearInterval(timer);
+            document.getElementById('countdown').innerHTML = 'EXPIRED!';
+            window.location.href = '/Home/Index';
+
+            return;
+            }
+            var days = Math.floor(distance / _day);
+            var hours = Math.floor((distance % _day) / _hour);
+            var minutes = Math.floor((distance % _hour) / _minute);
+            var seconds = Math.floor((distance % _minute) / _second);
+
+            document.getElementById('countdown').innerHTML = hours + 'hrs ';
+            document.getElementById('countdown').innerHTML += minutes + 'mins ';
+            document.getElementById('countdown').innerHTML += seconds + 'secs';
+            }
+
+            timer = setInterval(showRemaining, 1000);
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $("#countdown").countdown({
+                date: "2010-01-01T00:00:00",
+                format: "on"
+            },
+                function () {
+                });
+
+            $("#b").click(function () {
+
+            });
+        });
+    </script>
+
+
+}
+
+@*<link rel="stylesheet" media="mediatype and (min-width: 600px)" href="cadetblue.css" />*@
+
+    <style>
+        hr {
+            margin-top: 0.5em;
+            margin-bottom: 0.5em;
+            margin-left: auto;
+            margin-right: auto;
+            border-style: inset;
+            border-width: 1px;
+        }
+
+        #border1 {
+            float: left;
+            width: 320px;
+            height: 500px;
+            margin: 10px;
+            padding: 10px;
+            border: 2px solid black;
+            outline-style: double;
+        }
+        /* unvisited link */
+        a:link {
+            color: blue;
+        }
+        /* visited link */
+        a:visited {
+            color: red;
+        }
+        /* mouse over link */
+        a:hover {
+            color: hotpink;
+        }
+        /* selected link */
+        a:active {
+            color: blue;
+        }
+
+        div.pallot {
+            margin-top: 5%;
+            margin-bottom: 5%;
+            opacity: 0.8;
+            text-align: center;
+            filter: alpha(opacity=60); /* For IE8 and earlier */
+            /*filter: drop-shadow(8px 8px 10px #313030);*/
+            /*filter: blur(5px);*/
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            margin-right: -15px;
+            margin-left: -15px;
+        }
+
+        .w3-myfont {
+            font-family: "Comic Sans MS", /*cursive,*/, sans-serif;
+            font-size: 45px;
+            opacity: 0.9;
+        }
+
+        div.sidebarClock {
+            margin-top: 10%;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        div.countTime {
+            background: transparent url('../images/timer-area-pattern.png') left top;
+            text-align: center;
+            padding-top: 0.5em;
+            margin-bottom: 0.5em;
+            font-size: 3em;
+            margin-top: 2%;
+        }
+
+        .saunaAsetus {
+            text-align: center;
+            padding-top: 1em;
+            margin-bottom: 4em;
+            margin-top: 2%;
+        }
+
+        div.saunaAsetus p {
+            /*color: white;*/
+            font-size: 36px;
+        }
+    </style>
+
+
+<!--BACKGROUND-->
+@*//Ks. HomeController*@
+<hi>Käyttämäsi selain</hi>
+<p>@ViewBag.Selain</p>
+
+<div class="w3-container">
+    <div class="background">
+        <div class="jumbotron">
+
+            <h2 style="text-align:center;">ÄLYTALO</h2>
+
+            @*//Kellon asetukset*@
+            <div class="countTime"><p id="demo"></p></div>
+
+            <script>
+                var myVar = setInterval(myTimer, 1000);
+
+                function myTimer() {
+                    var d = new Date();
+                    document.getElementById("demo").innerHTML = d.toLocaleTimeString();
+                }
+            </script>
+
+            @*<p>Talon sijainti:</p>*@
+            <div id="googleMap" style="width:100%;height:200px;"></div>
+            <script src="http://maps.googleapis.com/maps/api/js"></script>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTiMTzgFGphHJTGCc1p4D9UTipHyDg5MU&callback=myMap"></script>
+
+
+            <div class="pallot">
+                <div class="col-lg-3">
+                    <div class="w3-display-container w3-text-white w3-text-shadow">
+                        <a href="~/TaloSauna/Index" target="_blank"><img class="rounded-circle" src="~/Images/jää.jpg" alt="jääbutton" width="150" height="150"></a>
+                        <div class="w3-display-middle w3-myfont">SAUNA</div>
+                    </div>
+                </div><!-- /.col-lg-3 -->
+                <div class="col-lg-3">
+                    <div class="w3-display-container w3-text-white w3-text-shadow">
+                        <a href="~/TaloValo/Index" target="_blank"><img class="rounded-circle" src="~/Images/jää.jpg" alt="jääbutton" width="150" height="150"></a>
+                        <div class="w3-display-middle w3-myfont">VALOT</div>
+                    </div>
+                </div><!-- /.col-lg-3 -->
+                <div class="col-lg-3">
+                    <div class="w3-display-container w3-text-white w3-text-shadow">
+                        <a href="~/TaloLampo/Index" target="_blank"><img class="rounded-circle" src="~/Images/jää.jpg" alt="jääbutton" width="150" height="150"></a>
+                        <div class="w3-display-middle w3-myfont">LÄMPÖ</div>
+                    </div>
+                </div><!-- /.col-lg-3 -->
+                <div class="col-lg-3">
+                    <div class="w3-display-container w3-text-white w3-text-shadow">
+                        <a href="~/TaloIlma/Index" target="_blank"><img class="rounded-circle" src="~/Images/jää.jpg" alt="jääbutton" width="150" height="150"></a>
+                        <div class="w3-display-middle w3-myfont">ILMA</div>
+                    </div>
+                </div><!-- /.col-lg-3 -->
+            </div>
+
+
+            @*//Sauna päälle*@
+            <div class="saunaAsetus">
+                <p id="demotimer"></p>
+
+                <button onclick="timedText()">Sauna päälle</button>
+
+                <button onclick="clearInterval(myVar)">Stop aika</button>
+
+                <button onclick="myVar = setTimeout(timedText, 20000)">Time out</button>
+
+                <button onclick="clearTimeout(myVar)">Time off</button>
+
+                <script>
+                    //var Astemerkki = Convert.ToChar(176);
+                          var myVar = setInterval(myTimer, 1000);
+                          function myTimer() {
+                              var d = new Date();
+                              document.getElementById("demotimer").innerHTML = d.toLocaleTimeString();
+                          }
+                @*</script>
+
+                <script>*@
+                    function timedText() {
+                        setTimeout(myTimeout1, 2000)
+                        setTimeout(myTimeout2, 4000)
+                        setTimeout(myTimeout3, 6000)
+                        setTimeout(myTimeout4, 8000)
+                        setTimeout(myTimeout5, 10000)
+                        setTimeout(myTimeout6, 12000)
+                        setTimeout(myTimeout7, 14000)
+                        setTimeout(myTimeout8, 16000)
+                        setTimeout(myTimeout9, 18000)
+                    }
+
+                    function myTimeout1() {
+                        document.getElementById("demotimer").innerHTML = "25";
+                    }
+                    function myTimeout2() {
+                        document.getElementById("demotimer").innerHTML = "30";
+                    }
+                    function myTimeout3() {
+                        document.getElementById("demotimer").innerHTML = "35";
+                    }
+                    function myTimeout4() {
+                        document.getElementById("demotimer").innerHTML = "40";
+                    }
+                    function myTimeout5() {
+                        document.getElementById("demotimer").innerHTML = "45";
+                    }
+                    function myTimeout6() {
+                        document.getElementById("demotimer").innerHTML = "50";
+                    }
+                    function myTimeout7() {
+                        document.getElementById("demotimer").innerHTML = "55";
+                    }
+                    function myTimeout8() {
+                        document.getElementById("demotimer").innerHTML = "60";
+                    }
+                    function myTimeout9() {
+                        document.getElementById("demotimer").innerHTML = "65";
+                    }
+
+                </script>
+            </div>
+
+            <script src="~/Scripts/countdown.js"></script>
+            <div class="timer-area">
+                <ul id="countdown">
+                    <li>
+                        <span class="days"></span>
+                        <p class="timeRefDays">days</p>
+                    </li>
+                    <li>
+                        <span class="hours"></span>
+                        <p class="timeRefHours">hours</p>
+                    </li>
+                    <li>
+                        <span class="minutes"></span>
+                        <p class="timeRefMinutes">minutes</p>
+                    </li>
+                    <li>
+                        <span class="seconds"></span>
+                        <p class="timeRefSeconds">seconds</p>
+                    </li>
+                </ul>
+            </div>
+
+            @*<div class="col-md-12">
+            <div class="form-actions no-color">
+                <div class="btn-group btn-group-vertical btn-lg">
+                    <hr>
+                    <a href="~/TaloSauna/SaunaOn" class="btn btn-default" style="width:250px;">SAUNA ON&raquo;</a><hr>
+                    <p><a href="~/TaloSauna/Edit" class="w3-btn w3-large">SAUNA ON</a></p>
+
+                    <a href="~/TaloSauna" class="btn btn-default" style="width:250px;">TALOSAUNA&raquo;</a><hr>
+                    <a href="~/TaloLammot" class="btn btn-default" style="width:250px;">LÄMMITYS&raquo;</a><hr>
+                    <a href="~/TaloValo" class="btn btn-default" style="width:250px;">VALAISTUS&raquo;</a><hr>
+
+                </div>
+            </div>
+        </div>*@
+
+            <!--CLOCK OPTIONS-->
+            <script src="~/Scripts/clock.js"></script>
+            <div class="sidebarClock">
+                <canvas id="canvas" width="300" height="300" style="background-color:#333"></canvas>
+                <script>
+                    var canvas = document.getElementById("canvas");
+                    var ctx = canvas.getContext("2d");
+                    var radius = canvas.height / 2;
+                    ctx.translate(radius, radius);
+                    radius = radius * 0.90
+                    //drawClock();
+                    setInterval(drawClock, 1000);
+
+                    function drawClock() {
+                        drawFace(ctx, radius);
+                        drawNumbers(ctx, radius);
+                        drawTime(ctx, radius);
+                    }
+
+                </script>
+            </div><!--clock options end-->
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/jquery-2.2.4.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/modernizr")
+
+

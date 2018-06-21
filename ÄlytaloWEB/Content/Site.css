@@ -1,0 +1,179 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    /*font-family: 'Ubuntu', sans-serif;*/
+    background: url('../Images/jääpeilivaaka.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+.no-cssgradients .header {
+    background: url('../Images/jääpeilivaaka.jpg') no-repeat center center fixed;
+}
+
+
+/*Modernizr määrityksiä:*/
+.cssgradients .header {
+    background-image: linear-gradient(cornflowerblue, rebeccapurple);
+}
+
+.cssgradients .header {
+    background-image: linear-gradient(cornflowerblue, rebeccapurple);
+}
+
+.jumbotron {
+    /*text-align: center;*/
+    text-align: left;
+    border-bottom: 1px solid #e5e5e5;
+    opacity: 0.7;
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 5px;
+    font-size: 12px !important;
+    /*font-weight: 200;*/
+    line-height: 2.1428571435;
+    color: inherit;
+    background-color: #eeeeee;
+}
+
+
+    .jumbotron h1 {
+        line-height: 1;
+        color: inherit;
+    }
+
+    .jumbotron p {
+        line-height: 1.4;
+    }
+
+.container .jumbotron {
+    border-radius: 0px !important;
+}
+
+@media screen and (min-width: 768px) {
+    .jumbotron {
+        padding-top: 48px;
+        padding-bottom: 48px;
+    }
+
+    .container .jumbotron {
+        padding-right: 40px;
+        padding-left: 40px;
+    }
+
+    .jumbotron h1 {
+        font-size: 14px;
+    }
+    /* Set padding to keep content from hitting the edges */
+    .body-content {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+    /* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+    .dl-horizontal dt {
+        white-space: normal;
+    }
+
+    /* Set width on the form input elements since they're 100% wide by default */
+    input,
+    select,
+    textarea {
+        max-width: 280px;
+    }
+
+    hr {
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+        margin-left: auto;
+        margin-right: auto;
+        border-style: inset;
+        border-width: 1px;
+    }
+
+    .sidebarClock {
+        display: block;
+        /*padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    margin-top: 200px;
+    margin-right: auto;
+    margin-left: 15px;
+    margin-bottom: auto;*/
+    }
+
+/* ---------- TIMER ---------- */
+ul#countdown li {
+    display: inline-block;
+    /*background: transparent url('../images/timer-piece.png') no-repeat left top;*/
+    width: 100px;
+    margin-bottom: 4em;
+    text-align: center;
+}
+
+ul#countdown li span {
+    font-size: 3em;
+    font-weight: bold;
+    color: red;
+    height: 108px;
+    line-height: 108px;
+    position: relative;
+}
+
+ul#countdown li span::before {
+    content: '';
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    top: 31px;
+}
+
+ul#countdown li p.timeRefDays,
+ul#countdown li p.timeRefHours,
+ul#countdown li p.timeRefMinutes,
+ul#countdown li p.timeRefSeconds {
+    margin-top: 1em;
+    color: #909091;
+    text-transform: uppercase;
+    font-size: .875em;
+}
+
+/* ---------- TIMER LAYOUT ---------- */
+.container {
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+#logo img {
+    margin: 2em 0;
+}
+
+.timer-area {
+    background: transparent url('../images/timer-area-pattern.png') left top;
+    text-align: center;
+    padding-top: 1em;
+    margin-bottom: 4em;
+    margin-top: 2%;
+}
+
+.timer-area h1 {
+    color: white;
+}
+
+.checkbox{
+    font-size:25px;
+}
+
+@media screen and (min-width:
+    600px) {
+    body {
+        background-color:cadetblue;
+    }
+}

@@ -1,0 +1,80 @@
+﻿@model ÄlytaloWEB.ViewModels.SaunaViewModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>TaloSauna</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SaunaNro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SaunaNro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SaunanNimi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SaunanNimi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SaunaTavoiteLampotila)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SaunaTavoiteLampotila)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SaunaNykyLampotila)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SaunaNykyLampotila)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SaunanTila)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SaunanTila)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SaunaStart)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SaunaStart)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SaunaStop)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SaunaStop)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="JohaMeriSQL2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TaloIlma">
+          <Key>
+            <PropertyRef Name="Ilma_ID" />
+          </Key>
+          <Property Name="Ilma_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Huone" Type="nvarchar" MaxLength="50" />
+          <Property Name="IlmaTilaOff" Type="bit" Nullable="false" />
+          <Property Name="Ilma1" Type="bit" Nullable="false" />
+          <Property Name="Ilma2" Type="bit" Nullable="false" />
+          <Property Name="Ilma3" Type="bit" Nullable="false" />
+          <Property Name="Ilma4" Type="bit" Nullable="false" />
+          <Property Name="IlmaOn1" Type="datetime" />
+          <Property Name="IlmaOn2" Type="datetime" />
+          <Property Name="IlmaOn3" Type="datetime" />
+          <Property Name="IlmaOn4" Type="datetime" />
+          <Property Name="IlmaOff" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TaloLampo">
+          <Key>
+            <PropertyRef Name="Huone_ID" />
+          </Key>
+          <Property Name="Huone_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Huone" Type="nvarchar" MaxLength="50" />
+          <Property Name="HuoneTavoiteLampo" Type="nvarchar" MaxLength="50" />
+          <Property Name="HuoneNykyLampo" Type="nvarchar" MaxLength="50" />
+          <Property Name="LampoKirjattu" Type="datetime" />
+          <Property Name="LampoOn" Type="bit" Nullable="false" />
+          <Property Name="LampoOff" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TaloSauna">
+          <Key>
+            <PropertyRef Name="Sauna_ID" />
+          </Key>
+          <Property Name="Sauna_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SaunaNro" Type="int" />
+          <Property Name="SaunanNimi" Type="nvarchar" MaxLength="50" />
+          <Property Name="SaunaTavoiteLampotila" Type="nvarchar" MaxLength="20" />
+          <Property Name="SaunaNykyLampotila" Type="nvarchar" MaxLength="20" />
+          <Property Name="SaunanTila" Type="bit" Nullable="false" />
+          <Property Name="SaunaStart" Type="datetime" />
+          <Property Name="SaunaStop" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TaloValo">
+          <Key>
+            <PropertyRef Name="Valo_ID" />
+          </Key>
+          <Property Name="Valo_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Huone" Type="nvarchar" MaxLength="50" />
+          <Property Name="ValaisinType" Type="nvarchar" MaxLength="50" />
+          <Property Name="Lamppu_ID" Type="varchar" MaxLength="5" />
+          <Property Name="ValoTilaOff" Type="bit" Nullable="false" />
+          <Property Name="Valo33" Type="bit" Nullable="false" />
+          <Property Name="Valo66" Type="bit" Nullable="false" />
+          <Property Name="Valo100" Type="bit" Nullable="false" />
+          <Property Name="ValoOn33" Type="datetime" />
+          <Property Name="ValoOn66" Type="datetime" />
+          <Property Name="ValoOn100" Type="datetime" />
+          <Property Name="ValoOff" Type="datetime" />
+        </EntityType>
+        <EntityContainer Name="JohaMeriSQL2ModelStoreContainer">
+          <EntitySet Name="TaloIlma" EntityType="Self.TaloIlma" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TaloLampo" EntityType="Self.TaloLampo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TaloSauna" EntityType="Self.TaloSauna" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TaloValo" EntityType="Self.TaloValo" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="JohaMeriSQL2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TaloIlma">
+          <Key>
+            <PropertyRef Name="Ilma_ID" />
+          </Key>
+          <Property Name="Ilma_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Huone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IlmaTilaOff" Type="Boolean" Nullable="false" />
+          <Property Name="Ilma1" Type="Boolean" Nullable="false" />
+          <Property Name="Ilma2" Type="Boolean" Nullable="false" />
+          <Property Name="Ilma3" Type="Boolean" Nullable="false" />
+          <Property Name="Ilma4" Type="Boolean" Nullable="false" />
+          <Property Name="IlmaOn1" Type="DateTime" Precision="3" />
+          <Property Name="IlmaOn2" Type="DateTime" Precision="3" />
+          <Property Name="IlmaOn3" Type="DateTime" Precision="3" />
+          <Property Name="IlmaOn4" Type="DateTime" Precision="3" />
+          <Property Name="IlmaOff" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="TaloLampo">
+          <Key>
+            <PropertyRef Name="Huone_ID" />
+          </Key>
+          <Property Name="Huone_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Huone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HuoneTavoiteLampo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HuoneNykyLampo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LampoKirjattu" Type="DateTime" Precision="3" />
+          <Property Name="LampoOn" Type="Boolean" Nullable="false" />
+          <Property Name="LampoOff" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TaloSauna">
+          <Key>
+            <PropertyRef Name="Sauna_ID" />
+          </Key>
+          <Property Name="Sauna_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SaunaNro" Type="Int32" />
+          <Property Name="SaunanNimi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SaunaTavoiteLampotila" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="SaunaNykyLampotila" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="SaunanTila" Type="Boolean" Nullable="false" />
+          <Property Name="SaunaStart" Type="DateTime" Precision="3" />
+          <Property Name="SaunaStop" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="TaloValo">
+          <Key>
+            <PropertyRef Name="Valo_ID" />
+          </Key>
+          <Property Name="Valo_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Huone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ValaisinType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Lamppu_ID" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="ValoTilaOff" Type="Boolean" Nullable="false" />
+          <Property Name="Valo33" Type="Boolean" Nullable="false" />
+          <Property Name="Valo66" Type="Boolean" Nullable="false" />
+          <Property Name="Valo100" Type="Boolean" Nullable="false" />
+          <Property Name="ValoOn33" Type="DateTime" Precision="3" />
+          <Property Name="ValoOn66" Type="DateTime" Precision="3" />
+          <Property Name="ValoOn100" Type="DateTime" Precision="3" />
+          <Property Name="ValoOff" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="JohaMeriSQL2Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TaloIlma" EntityType="Self.TaloIlma" />
+          <EntitySet Name="TaloLampo" EntityType="Self.TaloLampo" />
+          <EntitySet Name="TaloSauna" EntityType="Self.TaloSauna" />
+          <EntitySet Name="TaloValo" EntityType="Self.TaloValo" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="JohaMeriSQL2ModelStoreContainer" CdmEntityContainer="JohaMeriSQL2Entities">
+          <EntitySetMapping Name="TaloIlma">
+            <EntityTypeMapping TypeName="JohaMeriSQL2Model.TaloIlma">
+              <MappingFragment StoreEntitySet="TaloIlma">
+                <ScalarProperty Name="Ilma_ID" ColumnName="Ilma_ID" />
+                <ScalarProperty Name="Huone" ColumnName="Huone" />
+                <ScalarProperty Name="IlmaTilaOff" ColumnName="IlmaTilaOff" />
+                <ScalarProperty Name="Ilma1" ColumnName="Ilma1" />
+                <ScalarProperty Name="Ilma2" ColumnName="Ilma2" />
+                <ScalarProperty Name="Ilma3" ColumnName="Ilma3" />
+                <ScalarProperty Name="Ilma4" ColumnName="Ilma4" />
+                <ScalarProperty Name="IlmaOn1" ColumnName="IlmaOn1" />
+                <ScalarProperty Name="IlmaOn2" ColumnName="IlmaOn2" />
+                <ScalarProperty Name="IlmaOn3" ColumnName="IlmaOn3" />
+                <ScalarProperty Name="IlmaOn4" ColumnName="IlmaOn4" />
+                <ScalarProperty Name="IlmaOff" ColumnName="IlmaOff" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TaloLampo">
+            <EntityTypeMapping TypeName="JohaMeriSQL2Model.TaloLampo">
+              <MappingFragment StoreEntitySet="TaloLampo">
+                <ScalarProperty Name="Huone_ID" ColumnName="Huone_ID" />
+                <ScalarProperty Name="Huone" ColumnName="Huone" />
+                <ScalarProperty Name="HuoneTavoiteLampo" ColumnName="HuoneTavoiteLampo" />
+                <ScalarProperty Name="HuoneNykyLampo" ColumnName="HuoneNykyLampo" />
+                <ScalarProperty Name="LampoKirjattu" ColumnName="LampoKirjattu" />
+                <ScalarProperty Name="LampoOn" ColumnName="LampoOn" />
+                <ScalarProperty Name="LampoOff" ColumnName="LampoOff" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TaloSauna">
+            <EntityTypeMapping TypeName="JohaMeriSQL2Model.TaloSauna">
+              <MappingFragment StoreEntitySet="TaloSauna">
+                <ScalarProperty Name="Sauna_ID" ColumnName="Sauna_ID" />
+                <ScalarProperty Name="SaunaNro" ColumnName="SaunaNro" />
+                <ScalarProperty Name="SaunanNimi" ColumnName="SaunanNimi" />
+                <ScalarProperty Name="SaunaTavoiteLampotila" ColumnName="SaunaTavoiteLampotila" />
+                <ScalarProperty Name="SaunaNykyLampotila" ColumnName="SaunaNykyLampotila" />
+                <ScalarProperty Name="SaunanTila" ColumnName="SaunanTila" />
+                <ScalarProperty Name="SaunaStart" ColumnName="SaunaStart" />
+                <ScalarProperty Name="SaunaStop" ColumnName="SaunaStop" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TaloValo">
+            <EntityTypeMapping TypeName="JohaMeriSQL2Model.TaloValo">
+              <MappingFragment StoreEntitySet="TaloValo">
+                <ScalarProperty Name="Valo_ID" ColumnName="Valo_ID" />
+                <ScalarProperty Name="Huone" ColumnName="Huone" />
+                <ScalarProperty Name="ValaisinType" ColumnName="ValaisinType" />
+                <ScalarProperty Name="Lamppu_ID" ColumnName="Lamppu_ID" />
+                <ScalarProperty Name="ValoTilaOff" ColumnName="ValoTilaOff" />
+                <ScalarProperty Name="Valo33" ColumnName="Valo33" />
+                <ScalarProperty Name="Valo66" ColumnName="Valo66" />
+                <ScalarProperty Name="Valo100" ColumnName="Valo100" />
+                <ScalarProperty Name="ValoOn33" ColumnName="ValoOn33" />
+                <ScalarProperty Name="ValoOn66" ColumnName="ValoOn66" />
+                <ScalarProperty Name="ValoOn100" ColumnName="ValoOn100" />
+                <ScalarProperty Name="ValoOff" ColumnName="ValoOff" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
